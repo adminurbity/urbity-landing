@@ -36,19 +36,38 @@
 .brand-mark {
   display: inline-flex;
   align-items: center;
+  min-height: 4.5rem;
   text-decoration: none;
   color: inherit;
 }
 
 .brand-logo,
-.site-footer strong {
+.site-footer strong,
+.footer-logo {
   display: block;
 }
 
 .brand-logo {
   width: auto;
-  height: 3rem;
+  height: 4rem;
   object-fit: contain;
+}
+
+.brand-fallback {
+  min-width: 11rem;
+  height: 4rem;
+  padding: 0 1.25rem;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(32, 191, 200, 0.12), rgba(124, 58, 237, 0.12));
+  border: 1px solid rgba(51, 65, 85, 0.12);
+}
+
+.brand-fallback strong {
+  color: var(--color-dark);
+  font-size: 1.125rem;
 }
 
 .button {
@@ -417,6 +436,22 @@
   color: var(--color-slate);
 }
 
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-logo {
+  width: auto;
+  height: 3.25rem;
+  object-fit: contain;
+}
+
+.footer-copy p {
+  margin-bottom: 0;
+}
+
 @media (max-width: 960px) {
   .hero-section,
   .cta-section,
@@ -441,6 +476,11 @@
   .site-footer {
     padding-bottom: 2.5rem;
   }
+
+  .footer-brand {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 @media (max-width: 720px) {
@@ -449,7 +489,16 @@
   }
 
   .brand-logo {
-    height: 2.5rem;
+    height: 3.2rem;
+  }
+
+  .brand-fallback {
+    min-width: 8.5rem;
+    height: 3.2rem;
+  }
+
+  .footer-logo {
+    height: 2.75rem;
   }
 
   .hero-section {
