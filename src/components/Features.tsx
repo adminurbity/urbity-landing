@@ -1,8 +1,9 @@
+import type { LucideIcon } from 'lucide-react'
+
 type FeatureItem = {
-  name: string
-  status: string
+  title: string
   description: string
-  tone: 'live' | 'next'
+  icon: LucideIcon
 }
 
 type FeaturesProps = {
@@ -12,25 +13,29 @@ type FeaturesProps = {
 export function Features({ items }: FeaturesProps) {
   return (
     <section className="section features-section" id="modulos">
-      <div className="section-heading">
-        <span className="eyebrow">Módulos escalables</span>
-        <h2>Empieza con lo esencial y crece con la operación de tu comunidad</h2>
+      <div className="section-heading section-heading-wide">
+        <span className="eyebrow">Modulos clave</span>
+        <h2>Funciones pensadas para resolver el trabajo real de una administracion.</h2>
         <p>
-          La propuesta inicial resuelve el dolor más urgente hoy y deja claro
-          que Urbity evolucionará como un producto SaaS serio.
+          La propuesta combina claridad visual, estructura y capacidad de crecimiento para
+          que Urbity se perciba como una solucion seria desde el primer vistazo.
         </p>
       </div>
 
-      <div className="roadmap">
-        {items.map((item) => (
-          <article className={`roadmap-card roadmap-card-${item.tone}`} key={item.name}>
-            <div className="roadmap-meta">
-              <h3>{item.name}</h3>
-              <span>{item.status}</span>
-            </div>
-            <p>{item.description}</p>
-          </article>
-        ))}
+      <div className="feature-grid">
+        {items.map((item) => {
+          const Icon = item.icon
+
+          return (
+            <article className="feature-card" key={item.title}>
+              <div className="feature-icon">
+                <Icon size={20} />
+              </div>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </article>
+          )
+        })}
       </div>
     </section>
   )

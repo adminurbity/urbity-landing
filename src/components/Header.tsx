@@ -2,6 +2,12 @@ import { useState } from 'react'
 
 const logoSources = ['/logo.png', '/urbity-logo.svg', '/urbity-logo.png']
 
+const navItems = [
+  { href: '#modulos', label: 'Producto' },
+  { href: '#beneficios', label: 'Beneficios' },
+  { href: '#para-quien', label: 'Para quien' },
+]
+
 export function Header() {
   const [logoIndex, setLogoIndex] = useState(0)
   const [showFallback, setShowFallback] = useState(false)
@@ -34,8 +40,16 @@ export function Header() {
         )}
       </a>
 
-      <a className="button button-secondary" href="#cta">
-        Solicitar acceso
+      <nav className="site-nav" aria-label="Navegacion principal">
+        {navItems.map((item) => (
+          <a key={item.href} href={item.href}>
+            {item.label}
+          </a>
+        ))}
+      </nav>
+
+      <a className="button button-ghost" href="#cta">
+        Solicitar demo
       </a>
     </header>
   )

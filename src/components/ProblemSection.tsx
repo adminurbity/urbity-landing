@@ -1,18 +1,23 @@
+import { AlertTriangle, Clock3, MessagesSquare } from 'lucide-react'
+
 const painPoints = [
   {
-    title: 'Información perdida en WhatsApp',
+    title: 'Informacion perdida en chats',
     description:
-      'Los avisos importantes se mezclan con conversaciones y terminan desapareciendo cuando más se necesitan.',
+      'Avisos urgentes y decisiones importantes terminan enterrados en conversaciones informales.',
+    icon: MessagesSquare,
   },
   {
-    title: 'Mala comunicación con residentes',
+    title: 'Procesos manuales que drenan tiempo',
     description:
-      'La comunidad siente desorden cuando no sabe dónde consultar novedades, normas o estados de gestión.',
+      'Excel, papel y seguimiento por llamada hacen que la operacion sea mas lenta y menos confiable.',
+    icon: Clock3,
   },
   {
-    title: 'Procesos manuales que consumen tiempo',
+    title: 'Falta de visibilidad para residentes',
     description:
-      'Excel, papel y chats obligan a repetir trabajo y elevan el riesgo de errores operativos.',
+      'Cuando no hay un canal claro, aumentan las dudas, las quejas y la sensacion de desorden.',
+    icon: AlertTriangle,
   },
 ]
 
@@ -20,23 +25,28 @@ export function ProblemSection() {
   return (
     <section className="section problem-section" id="problema">
       <div className="section-heading">
-        <span className="eyebrow">El problema</span>
-        <h2>Administrar una comunidad no debería sentirse como apagar incendios</h2>
+        <span className="eyebrow">El problema actual</span>
+        <h2>La administracion pierde credibilidad cuando la operacion depende de improvisacion.</h2>
         <p>
-          Cuando la operación depende de canales dispersos, el administrador
-          pierde tiempo explicando, buscando y corrigiendo lo que nunca debió
-          desordenarse.
+          Muchas comunidades operan con herramientas que no fueron pensadas para este trabajo.
+          El resultado es ruido, retrabajo y una experiencia poco profesional.
         </p>
       </div>
 
       <div className="problem-grid">
-        {painPoints.map((item, index) => (
-          <article className="problem-card" key={item.title}>
-            <span className="problem-index">0{index + 1}</span>
-            <h3>{item.title}</h3>
-            <p>{item.description}</p>
-          </article>
-        ))}
+        {painPoints.map((item) => {
+          const Icon = item.icon
+
+          return (
+            <article className="problem-card" key={item.title}>
+              <div className="problem-icon">
+                <Icon size={20} />
+              </div>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </article>
+          )
+        })}
       </div>
     </section>
   )

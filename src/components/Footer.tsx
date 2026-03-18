@@ -5,10 +5,14 @@ export function Footer() {
         <img className="footer-logo" src="/logo.png" alt="Urbity" />
         <div className="footer-copy">
           <strong>Urbity</strong>
-          <p>Plataforma SaaS para comunidades mejor organizadas.</p>
+          <p>Software para comunidades mejor organizadas y mas confiables.</p>
         </div>
       </div>
-      <span>2026</span>
+
+      <div className="footer-meta">
+        <span>urbity.app</span>
+        <span>2026</span>
+      </div>
     </footer>
   )
 }
